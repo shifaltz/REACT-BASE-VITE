@@ -1,5 +1,5 @@
-import { Label } from "../ui/label";
-import { SearchInput } from "../shared/SearchInput";
+import { Label } from "../../ui/label";
+import { SearchInput } from "../../shared/SearchInput";
 
 export default function SearchMenu() {
   return (

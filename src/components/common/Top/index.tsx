@@ -1,7 +1,7 @@
-import { Bell, Moon, Sun, Text } from "lucide-react";
+import { AArrowUp, Bell, CaseSensitive, Moon, Sun, Text } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { useTheme } from "../theme-provider";
+import { useTheme } from "../../theme-provider";
 
 export default function Topbar() {
   const { theme, setTheme } = useTheme();
@@ -18,8 +18,8 @@ export default function Topbar() {
 
       <div className="flex items-center gap-4">
         {/* Botões de acessibilidade */}
-        <Button variant="outline" size="icon">
-          <Text className="w-4 h-4" />
+        <Button variant="outline" className="w-10 h-10">
+          <CaseSensitive size={48} />
         </Button>
 
         {/* Botão de troca de tema */}

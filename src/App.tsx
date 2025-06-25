@@ -1,11 +1,11 @@
-import PopularServices from "./components/PopularServices";
-import RecentRequests from "./components/RecentRequests";
-import SearchMenu from "./components/SearchMenu";
-import { AppSidebar } from "./components/Side";
+import PopularServices from "./components/common/PopularServices";
+import RecentRequests from "./components/common/RecentRequests";
+import SearchMenu from "./components/common/SearchMenu";
+import { AppSidebar } from "./components/common/Side";
 import { ThemeProvider } from "./components/theme-provider";
-import Topbar from "./components/Top";
+import Topbar from "./components/common/Top";
 import { SidebarProvider } from "./components/ui/sidebar";
-import Welcome from "./components/Welcome";
+import Welcome from "./components/common/Welcome";
 
 function App() {
   return (
