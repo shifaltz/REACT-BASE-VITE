@@ -1,5 +1,12 @@
 import * as React from "react";
-import { ChevronRight } from "lucide-react";
+import {
+  Calendar,
+  Home,
+  Inbox,
+  Search,
+  Settings,
+  ChevronRight,
+} from "lucide-react";
 import {
   Collapsible,
   CollapsibleContent,
@@ -20,184 +27,139 @@ import {
 const data = {
   navMain: [
     {
-      title: "Getting Started",
+      title: "Nova Solicitação",
       url: "#",
+      icon: Home,
       items: [
         {
-          title: "Installation",
+          title: "Pensão por Morte",
           url: "#",
         },
         {
-          title: "Project Structure",
+          title: "Aposentadoria",
           url: "#",
         },
       ],
     },
     {
-      title: "Building Your Application",
+      title: "Minhas Solicitações",
       url: "#",
+      icon: Calendar,
+      items: [],
+    },
+    {
+      title: "Extrato, comprovantes ",
+      url: "#",
+      icon: Inbox,
       items: [
         {
-          title: "Routing",
+          title: "Informe de rendimento",
           url: "#",
         },
         {
-          title: "Data Fetching",
-          url: "#",
-        },
-        {
-          title: "Rendering",
-          url: "#",
-        },
-        {
-          title: "Caching",
-          url: "#",
-        },
-        {
-          title: "Styling",
-          url: "#",
-        },
-        {
-          title: "Optimizing",
-          url: "#",
-        },
-        {
-          title: "Configuring",
-          url: "#",
-        },
-        {
-          title: "Testing",
-          url: "#",
-        },
-        {
-          title: "Authentication",
-          url: "#",
-        },
-        {
-          title: "Deploying",
-          url: "#",
-        },
-        {
-          title: "Upgrading",
-          url: "#",
-        },
-        {
-          title: "Examples",
+          title: "Demonstrativo de Pagamentos",
           url: "#",
         },
       ],
     },
     {
-      title: "API Reference",
+      title: "Atualização Cadastral",
       url: "#",
+      icon: Search,
       items: [
         {
-          title: "Components",
+          title: "Recadastramento",
           url: "#",
         },
         {
-          title: "File Conventions",
-          url: "#",
-        },
-        {
-          title: "Functions",
-          url: "#",
-        },
-        {
-          title: "next.config.js Options",
-          url: "#",
-        },
-        {
-          title: "CLI",
-          url: "#",
-        },
-        {
-          title: "Edge Runtime",
+          title: "Censo",
           url: "#",
         },
       ],
     },
     {
-      title: "Architecture",
+      title: "Carteira de Documentos",
       url: "#",
-      items: [
-        {
-          title: "Accessibility",
-          url: "#",
-        },
-        {
-          title: "Fast Refresh",
-          url: "#",
-        },
-        {
-          title: "Next.js Compiler",
-          url: "#",
-        },
-        {
-          title: "Supported Browsers",
-          url: "#",
-        },
-        {
-          title: "Turbopack",
-          url: "#",
-        },
-      ],
+      icon: Settings,
+      items: [],
     },
     {
-      title: "Community",
+      title: "Cumprimento de exigências",
       url: "#",
-      items: [
-        {
-          title: "Contribution Guide",
-          url: "#",
-        },
-      ],
+      icon: Calendar,
+      items: [],
+    },
+    {
+      title: "Suporte",
+      url: "#",
+      icon: Inbox,
+      items: [],
     },
   ],
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar
-      {...props}
-      className="fixed left-0 top-[64px] z-40 h-full w-64 shadow-2xl "
-    >
-      <SidebarContent className="gap-0 pt-4 bg-zinc-100">
-        {data.navMain.map((item) => (
-          <Collapsible
-            key={item.title}
-            title={item.title}
-            defaultOpen
-            className="group/collapsible"
-          >
+    <>
+      <Sidebar {...props} className="fixed top-16 h-full w-64 shadow-2xl">
+        <SidebarContent className="gap-0 pt-4 bg-[#EEEEEE] dark:bg-zinc-900">
+          <Collapsible defaultOpen className="group/collapsible">
             <SidebarGroup>
               <SidebarGroupLabel
                 asChild
-                className="group/label text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground text-sm"
+                className="group/label text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white text-sm"
               >
-                <CollapsibleTrigger>
-                  {item.title}{" "}
-                  <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
+                <CollapsibleTrigger className="gap-2">
+                  <Home />
+                  <p>Inicio</p>
                 </CollapsibleTrigger>
               </SidebarGroupLabel>
-              <CollapsibleContent>
-                <SidebarGroupContent>
-                  <SidebarMenu>
-                    {item.items.map((item) => (
-                      <SidebarMenuItem key={item.title}>
-                        <SidebarMenuButton asChild>
-                          <a href={item.url}>{item.title}</a>
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>
-                    ))}
-                  </SidebarMenu>
-                </SidebarGroupContent>
-              </CollapsibleContent>
             </SidebarGroup>
           </Collapsible>
-        ))}
-      </SidebarContent>
-      <SidebarRail />
-    </Sidebar>
+
+          {data.navMain.map((item) => (
+            <Collapsible
+              key={item.title}
+              title={item.title}
+              defaultOpen
+              className="group/collapsible"
+            >
+              <SidebarGroup>
+                <SidebarGroupLabel
+                  asChild
+                  className="group/label text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white text-sm"
+                >
+                  <CollapsibleTrigger className="gap-1">
+                    <item.icon />
+                    {item.title}
+                    <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
+                  </CollapsibleTrigger>
+                </SidebarGroupLabel>
+
+                <CollapsibleContent>
+                  <SidebarGroupContent>
+                    <SidebarMenu>
+                      {item.items.map((item) => (
+                        <SidebarMenuItem key={item.title}>
+                          <SidebarMenuButton asChild>
+                            <a
+                              href={item.url}
+                              className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white"
+                            >
+                              {item.title}
+                            </a>
+                          </SidebarMenuButton>
+                        </SidebarMenuItem>
+                      ))}
+                    </SidebarMenu>
+                  </SidebarGroupContent>
+                </CollapsibleContent>
+              </SidebarGroup>
+            </Collapsible>
+          ))}
+        </SidebarContent>
+        <SidebarRail />
+      </Sidebar>
+    </>
   );
 }
