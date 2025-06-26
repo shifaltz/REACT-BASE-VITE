@@ -23,6 +23,7 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const data = {
   navMain: [
@@ -110,7 +111,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 className="group/label text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white text-sm"
               >
                 <CollapsibleTrigger className="gap-2">
-                  <Home />
+                  <FontAwesomeIcon icon="house" />
                   <p>Inicio</p>
                 </CollapsibleTrigger>
               </SidebarGroupLabel>

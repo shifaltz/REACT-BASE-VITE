@@ -2,6 +2,7 @@ import { AArrowUp, Bell, CaseSensitive, Moon, Sun, Text } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useTheme } from "../../theme-provider";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Topbar() {
   const { theme, setTheme } = useTheme();
@@ -19,7 +20,7 @@ export default function Topbar() {
       <div className="flex items-center gap-4">
         {/* Botões de acessibilidade */}
         <Button variant="outline" className="w-10 h-10">
-          <CaseSensitive size={48} />
+          <FontAwesomeIcon icon="a" />
         </Button>
 
         {/* Botão de troca de tema */}
