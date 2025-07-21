@@ -4,8 +4,15 @@ import loginImage from "@/assets/images/login.png";
 import logoSpprev from "@/assets/images/logo_spprev.png";
 import { Card, CardContent } from "@/components/ui/card";
 import { User } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate("/gerenciamentoAcesso");
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#f9fafa] relative overflow-hidden">
       {/* Background Logo Substituindo SVG */}
@@ -43,7 +50,10 @@ export default function Login() {
                 Para acessar o autoatendimento, por favor, clique no botão
                 abaixo e faça seu login através do portal oficial do Gov.br.
               </p>
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full">
+              <Button
+                onClick={handleLogin}
+                className="bg-blue-600 hover:bg-blue-700 text-white w-full"
+              >
                 <User />
                 Entrar com o gov.br
               </Button>
