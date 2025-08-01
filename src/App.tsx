@@ -5,11 +5,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ProtectedLayout } from "./ProtectedLayout";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import GerenciamentoAcesso from "./pages/GerenciamentoAcesso";
+import GerenciamentoAcesso from "./pages/Acessos";
+import GestaoAcessos from "./pages/GestaoAcessos";
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
       <BrowserRouter>
         <Routes>
           {/* Rotas “públicas” sem layout */}
@@ -21,6 +22,7 @@ function App() {
           {/* Todas as outras rotas usam o ProtectedLayout */}
           <Route path="/" element={<ProtectedLayout />}>
             <Route index element={<Home />} />
+            <Route path="/gestaoAcessos" element={<GestaoAcessos />} />
             {/* Aqui você adiciona outras rotas internas */}
           </Route>
         </Routes>
