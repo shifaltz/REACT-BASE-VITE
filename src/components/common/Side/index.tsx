@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/sidebar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getModulos, type Modulo } from "@/lib/api/modulos";
+import { useNavigate } from "react-router-dom";
 
 const data = {
   navMain: [
@@ -101,6 +102,7 @@ const data = {
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const navigate = useNavigate();
   const [modulos, setModulos] = React.useState<Modulo[]>([]);
 
   console.log("modulos", modulos);
@@ -113,17 +115,24 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       });
   }, []);
 
+  const handleHomePage = () => {
+    navigate("/");
+  };
+
   return (
     <>
       <Sidebar {...props} className="fixed top-16 h-full w-64 shadow-2xl">
-        <SidebarContent className="gap-0 pt-4 bg-[#EEEEEE] dark:bg-zinc-900">
-          <Collapsible defaultOpen className="group/collapsible">
+        <SidebarContent className="gap-0 pt-4 bg-[#EEEEEE] dark:bg-zinc-900 ">
+          <Collapsible defaultOpen className="group/collapsible cursor-pointer">
             <SidebarGroup>
               <SidebarGroupLabel
                 asChild
                 className="group/label text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white text-sm"
               >
-                <CollapsibleTrigger className="gap-2">
+                <CollapsibleTrigger
+                  className="gap-2 cursor-pointer"
+                  onClick={handleHomePage}
+                >
                   <FontAwesomeIcon icon="house" />
                   <p>Inicio</p>
                 </CollapsibleTrigger>
@@ -143,7 +152,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   asChild
                   className="group/label text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-black dark:hover:text-white text-sm"
                 >
-                  <CollapsibleTrigger className="gap-1">
+                  <CollapsibleTrigger className="gap-1 cursor-pointer">
                     <item.icon />
                     {item.title}
                     <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />

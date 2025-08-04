@@ -12,9 +12,15 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useNavigate } from "react-router-dom";
 
 export default function Topbar() {
   const { theme, setTheme } = useTheme();
+  const navigate = useNavigate();
+
+  const handleAcessibilidade = () => {
+    navigate("/acessibilidadeFonte");
+  };
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
@@ -28,7 +34,11 @@ export default function Topbar() {
 
       <div className="flex items-center gap-4">
         {/* Botões de acessibilidade */}
-        <Button variant="outline" className="w-10 h-10">
+        <Button
+          variant="outline"
+          className="w-10 h-10 hover:cursor-pointer"
+          onClick={handleAcessibilidade}
+        >
           <FontAwesomeIcon icon="a" />
         </Button>
 
@@ -37,7 +47,7 @@ export default function Topbar() {
           variant="outline"
           size="icon"
           onClick={toggleTheme}
-          className="relative"
+          className="relative hover:cursor-pointer"
         >
           <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
           <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
@@ -45,7 +55,7 @@ export default function Topbar() {
         </Button>
 
         <Button variant="outline" size="icon">
-          <Bell className="w-4 h-4" />
+          <Bell className="w-4 h-4 hover:cursor-pointer" />
         </Button>
 
         {/* Dropdown Menu */}

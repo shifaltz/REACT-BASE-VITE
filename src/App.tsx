@@ -24,7 +24,10 @@ function App() {
           <Route path="/" element={<ProtectedLayout />}>
             <Route index element={<Home />} />
             <Route path="/gestaoAcessos" element={<GestaoAcessos />} />
-            <Route path="/acessibilidade" element={<AcessibilidadeFonte />} />
+            <Route
+              path="/acessibilidadeFonte"
+              element={<AcessibilidadeFonte />}
+            />
             {/* Aqui você adiciona outras rotas internas */}
           </Route>
         </Routes>
