@@ -1,4 +1,4 @@
-import { Bell, Moon, Sun, Settings, LogOut, Lock } from "lucide-react"; // Adicione novos ícones
+import { Bell, Moon, Sun, Lock } from "lucide-react"; // Adicione novos ícones
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useTheme } from "../../theme-provider";
@@ -9,7 +9,6 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";

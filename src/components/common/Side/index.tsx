@@ -24,6 +24,7 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { getModulos, type Modulo } from "@/lib/api/modulos";
 
 const data = {
   navMain: [
@@ -100,6 +101,18 @@ const data = {
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const [modulos, setModulos] = React.useState<Modulo[]>([]);
+
+  console.log("modulos", modulos);
+
+  React.useEffect(() => {
+    getModulos()
+      .then(setModulos)
+      .catch((err) => {
+        console.error("Erro ao buscar módulos", err);
+      });
+  }, []);
+
   return (
     <>
       <Sidebar {...props} className="fixed top-16 h-full w-64 shadow-2xl">

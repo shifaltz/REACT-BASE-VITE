@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ChartNoAxesCombined, ChevronRight, MoveRight } from "lucide-react";
+import { ChartNoAxesCombined, MoveRight } from "lucide-react";
 import {
   Home as HomeIcon,
   MapPin as MapPinIcon,

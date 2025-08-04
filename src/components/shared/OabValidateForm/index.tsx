@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
@@ -9,6 +8,7 @@ export default function OabValidateForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Lógica de validação da OAB aqui
+    setOabNumber("1");
     console.log("Validando OAB:", oabNumber);
   };
 
@@ -65,8 +65,13 @@ export default function OabValidateForm() {
           </div>
         </div>
         <div className="flex justify-end gap-4">
-          <div className="w-[120px]">
-            <Button className="w-full bg-cyan">Validar OAB</Button>
+          <div className="w-[120px] ">
+            <button
+              onClick={handleSubmit}
+              className=" bg-cyan text-white font-bold w-28 h-9 rounded-sm"
+            >
+              Validar OAB
+            </button>
           </div>
         </div>
       </div>
