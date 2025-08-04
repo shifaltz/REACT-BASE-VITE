@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import GerenciamentoAcesso from "./pages/Acessos";
 import GestaoAcessos from "./pages/GestaoAcessos";
+import { AcessibilidadeFonte } from "./pages/AcessibilidadeFonte";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={<ProtectedLayout />}>
             <Route index element={<Home />} />
             <Route path="/gestaoAcessos" element={<GestaoAcessos />} />
+            <Route path="/acessibilidade" element={<AcessibilidadeFonte />} />
             {/* Aqui você adiciona outras rotas internas */}
           </Route>
         </Routes>
