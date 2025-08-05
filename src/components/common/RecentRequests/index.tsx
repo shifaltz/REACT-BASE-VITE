@@ -39,7 +39,6 @@ const requests = [
     },
     href: "/minhas-solicitacoes/289456265",
   },
-  // adicione mais objetos aqui conforme necessário
 ];
 
 export default function RecentRequests() {

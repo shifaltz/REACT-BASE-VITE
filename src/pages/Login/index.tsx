@@ -15,7 +15,6 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#f9fafa] relative overflow-hidden">
-      {/* Background Logo Substituindo SVG */}
       <div className="absolute inset-0 flex justify-center items-center pointer-events-none select-none z-0">
         <img
           src={logoSpprev}
@@ -34,7 +33,6 @@ export default function Login() {
 
           {/* Conteúdo */}
           <div className="flex flex-col sm:flex-row w-full h-4/5 ">
-            {/* Ilustração */}
             <div className="w-1/2 h-full pt-10 overflow-hidden">
               <img
                 src={loginImage}
