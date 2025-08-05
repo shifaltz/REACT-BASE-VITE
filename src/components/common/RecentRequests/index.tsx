@@ -15,6 +15,7 @@ import {
   CircleChevronLeft,
   List,
 } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const requests = [
   {
@@ -24,7 +25,12 @@ const requests = [
     action: {
       label: "Cumprir exigências",
       variant: "warning",
-      icon: <AlertTriangle className="mr-1 h-4 w-4" />,
+      icon: (
+        <FontAwesomeIcon
+          icon={"triangle-exclamation"}
+          className="h-4 w-4 ml-1"
+        />
+      ),
     },
     href: "/minhas-solicitacoes/289456265",
   },
@@ -35,10 +41,11 @@ const requests = [
     action: {
       label: "Visualizar",
       variant: "default",
-      icon: <SearchIcon className="mr-1 h-4 w-4" />,
+      icon: <FontAwesomeIcon icon={"search"} className="h-4 w-4 ml-1" />,
     },
     href: "/minhas-solicitacoes/289456265",
   },
+  // adicione mais objetos aqui conforme necessário
 ];
 
 export default function RecentRequests() {
@@ -56,13 +63,16 @@ export default function RecentRequests() {
     <section className="py-6">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center space-x-2 text-lg font-semibold">
-          <List className="h-5 w-5" />
+          <FontAwesomeIcon icon={"list"} className="h-5 w-5" />
           <span>Solicitações recentes</span>
         </div>
         <a href="/minhas-solicitacoes">
           <Button variant="link" className="text-sm">
-            Ver minhas solicitações{" "}
-            <ChevronRight className="inline-block h-4 w-4 ml-1" />
+            Ver minhas solicitações
+            <FontAwesomeIcon
+              icon={"arrow-right"}
+              className="inline-block h-4 w-4 ml-1"
+            />
           </Button>
         </a>
       </div>
@@ -101,12 +111,13 @@ export default function RecentRequests() {
         {/* Navigation controls: arrows + dots */}
         <div className="flex items-center justify-center space-x-4 mt-4">
           <Button
-            variant="outline"
+            variant="ghost"
             size="icon"
             onClick={prev}
             disabled={index === 0}
+            className="text-teal-600 hover:text-teal-600 "
           >
-            <CircleChevronLeft />
+            <FontAwesomeIcon icon={"circle-chevron-left"} />
           </Button>
 
           <div className="flex space-x-2">
@@ -115,19 +126,20 @@ export default function RecentRequests() {
                 key={idx}
                 onClick={() => setIndex(idx)}
                 className={`h-2 w-2 rounded-full focus:outline-none ${
-                  idx === index ? "bg-emerald-600" : "bg-gray-300"
+                  idx === index ? "bg-teal-600" : "bg-gray-300"
                 }`}
               />
             ))}
           </div>
 
           <Button
-            variant="outline"
+            variant="ghost"
             size="icon"
             onClick={next}
             disabled={index === maxIndex}
+            className="text-teal-600 hover:text-teal-600 "
           >
-            <CircleChevronRight />
+            <FontAwesomeIcon icon={"circle-chevron-right"} />
           </Button>
         </div>
       </div>

@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useTheme } from "../../theme-provider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// Importações do Dropdown Menu
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,6 +12,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useNavigate } from "react-router-dom";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function Topbar() {
   const { theme, setTheme } = useTheme();
@@ -54,9 +61,102 @@ export default function Topbar() {
           <span className="sr-only">Toggle theme</span>
         </Button>
 
-        <Button variant="outline" size="icon">
-          <Bell className="w-4 h-4 hover:cursor-pointer" />
-        </Button>
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button variant="outline" size="icon">
+              <Bell className="w-4 h-4 hover:cursor-pointer" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent
+            side="right"
+            className=" bg-white dark:bg-zinc-900 shadow-lg"
+            style={{ maxWidth: "30vw" }}
+          >
+            <SheetHeader>
+              <SheetTitle className="flex  text-2xl justify-center mb-5">
+                Notificações
+              </SheetTitle>
+              <div className="flex flex-row justify-between px-5">
+                <span className="font-bold text-zinc-500 cursor-pointer">
+                  Ver todas
+                </span>
+                <span className="font-bold text-red cursor-pointer">
+                  Apagar todas
+                </span>
+              </div>
+            </SheetHeader>
+            <div className="w-full  p-2 gap-5">
+              <Card className="w-full  border-zinc-400 bg-white dark:bg-zinc-900 dark:border-zinc-700 shadow-lg rounded-lg overflow-hidden mb-2">
+                <CardContent className="w-full gap-2">
+                  {/* Item com exigências (não concluído) */}
+                  <div className="flex items-start">
+                    <div className=" w-full flex flex-row">
+                      <div className="flex  items-center w-1/12 ">
+                        <FontAwesomeIcon icon={"bell"} className=" h-6 w-6" />
+                      </div>
+                      <div className="flex flex-col justify-center  w-10/12 ">
+                        <h3 className="font-bold text-gray-800">
+                          Você possui exigências
+                        </h3>
+                        <p className="text-sm text-gray-600">
+                          Confira a página de exigências para saber mais
+                        </p>
+                      </div>
+                      <div className="flex justify-end items-center w-1/12 ">
+                        <FontAwesomeIcon icon={"close"} className=" h-3 w-3" />
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card className="w-full  border-red-700 bg-white dark:bg-zinc-900 dark:border-zinc-700 shadow-lg rounded-lg overflow-hidden mb-2">
+                <CardContent className="w-full gap-2">
+                  {/* Item com exigências (não concluído) */}
+                  <div className="flex items-start">
+                    <div className=" w-full flex flex-row text-red">
+                      <div className="flex  items-center w-1/12 ">
+                        <FontAwesomeIcon
+                          icon={"circle-exclamation"}
+                          className=" h-6 w-6 "
+                        />
+                      </div>
+                      <div className="flex flex-col justify-center  w-10/12 ">
+                        <h3 className="font-bold ">Você possui exigências</h3>
+                        <p className="text-sm ">
+                          Confira a página de exigências para saber mais
+                        </p>
+                      </div>
+                      <div className="flex justify-end items-center w-1/12 ">
+                        <FontAwesomeIcon icon={"close"} className=" h-3 w-3" />
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card className="w-full  border-green-700 bg-white dark:bg-zinc-900 dark:border-zinc-700 shadow-lg rounded-lg overflow-hidden mb-2">
+                <CardContent className="w-full gap-2">
+                  {/* Item com exigências (não concluído) */}
+                  <div className="flex items-start text-green-600">
+                    <div className=" w-full flex flex-row">
+                      <div className="flex   items-center w-1/12 ">
+                        <FontAwesomeIcon icon={"check"} className=" h-6 w-6" />
+                      </div>
+                      <div className="flex flex-col justify-center  w-10/12 ">
+                        <h3 className="font-bold ">Você possui exigências</h3>
+                        <p className="text-sm ">
+                          Confira a página de exigências para saber mais
+                        </p>
+                      </div>
+                      <div className="flex justify-end items-center w-1/12 ">
+                        <FontAwesomeIcon icon={"close"} className=" h-3 w-3" />
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </SheetContent>
+        </Sheet>
 
         {/* Dropdown Menu */}
         <DropdownMenu>
