@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useTheme } from "../../theme-provider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import logoSpprev from "@/assets/images/logo_spprev.png";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -35,8 +36,8 @@ export default function Topbar() {
 
   return (
     <header className="fixed top-0 left-0 z-50 w-full bg-[#EEEEEE] dark:bg-zinc-900 border-b p-4 flex items-center justify-between shadow-xl">
-      <div className="flex items-center gap-2">
-        <span className="text-xs text-gray-500">SÃO PAULO PREVIDÊNCIA</span>
+      <div className="flex items-center gap-2 pl-10">
+        <img src={logoSpprev} alt="Logo SPPREV" className="h-11 w-16" />
       </div>
 
       <div className="flex items-center gap-4">

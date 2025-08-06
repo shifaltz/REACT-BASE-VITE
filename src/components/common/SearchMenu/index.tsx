@@ -50,38 +50,25 @@ export default function SearchMenu() {
             <CommandList>
               <CommandEmpty>Nenhum resultado.</CommandEmpty>
 
-              <CommandGroup heading="Sugestões">
+              <CommandGroup heading="Nova Solicitação">
                 <CommandItem>
-                  <Calendar />
-                  <span>Calendário</span>
+                  <span>Pensão por Morte</span>
                 </CommandItem>
                 <CommandItem>
-                  <Smile />
-                  <span>Emoji</span>
-                </CommandItem>
-                <CommandItem disabled>
-                  <Calculator />
-                  <span>Calculadora</span>
+                  <span>Aposentadoria</span>
                 </CommandItem>
               </CommandGroup>
 
               <CommandSeparator />
 
-              <CommandGroup heading="Configurações">
+              <CommandGroup heading="Minhas Solicitações"></CommandGroup>
+              <CommandSeparator />
+              <CommandGroup heading="Extrato, Comprovantes">
                 <CommandItem>
-                  <User />
-                  <span>Perfil</span>
-                  <CommandShortcut>⌘P</CommandShortcut>
+                  <span>Informe de rendimento</span>
                 </CommandItem>
                 <CommandItem>
-                  <CreditCard />
-                  <span>Faturas</span>
-                  <CommandShortcut>⌘B</CommandShortcut>
-                </CommandItem>
-                <CommandItem>
-                  <Settings />
-                  <span>Configurações</span>
-                  <CommandShortcut>⌘S</CommandShortcut>
+                  <span>Demonstrativo de pagamento</span>
                 </CommandItem>
               </CommandGroup>
             </CommandList>
